@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Enhanced OWASP Vulnerability Scanner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container flex items-center justify-between">
+            <div class="logo">
+                <h2>🛡️ SecureCodeAI</h2>
+            </div>
+            <div class="nav-links flex items-center gap-16">
+                <a href="#scanner" class="nav-link">Scanner</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#leaderboard" class="nav-link">Leaderboard</a>
+                <a href="#education" class="nav-link">Learn</a>
+                <button id="theme-toggle" class="btn btn--secondary btn--sm">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">AI-Enhanced OWASP Vulnerability Scanner</h1>
+                <p class="hero-description">
+                    Revolutionary security scanning with AI-powered detection, gamification, and educational insights. 
+                    Secure your code while learning and competing with other developers.
+                </p>
+                <div class="hero-stats flex gap-16">
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">AI Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">OWASP Categories</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Real-time</div>
+                        <div class="stat-label">Scanning</div>
+                    </div>
+                </div>
+                <button id="start-demo" class="btn btn--primary btn--lg">Start Demo Scan</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1748603871/gpt4o_images/t75o38kcvsgqeyagh7go.png" alt="Architecture Diagram" class="architecture-diagram">
+            </div>
+        </div>
+    </section>
+
+    <!-- User Profile -->
+    <div class="user-profile">
+        <div class="container">
+            <div class="profile-card card">
+                <div class="profile-info flex items-center gap-16">
+                    <div class="avatar">👤</div>
+                    <div>
+                        <h3 id="username">SecurityTester</h3>
+                        <div class="level-info">
+                            <span id="user-level">Level 5</span>
+                            <span class="xp" id="user-xp">325 XP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-stats flex gap-16">
+                    <div class="stat">
+                        <span class="stat-value" id="total-scans">12</span>
+                        <span class="stat-label">Scans</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="vulnerabilities-found">47</span>
+                        <span class="stat-label">Vulns Found</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="accuracy-rate">92%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Scanner Section -->
+    <section id="scanner" class="scanner-section">
+        <div class="container">
+            <h2>AI-Powered Code Scanner</h2>
+            <div class="scanner-grid">
+                <div class="code-input-section">
+                    <div class="card">
+                        <div class="card__header flex justify-between items-center">
+                            <h3>Code Input</h3>
+                            <select id="code-samples" class="form-control" style="width: auto;">
+                                <option value="">Select example...</option>
+                                <option value="xss">XSS Vulnerability</option>
+                                <option value="sql_injection">SQL Injection</option>
+                                <option value="cors_misconfiguration">CORS Misconfiguration</option>
+                                <option value="hardcoded_secrets">Hardcoded Secrets</option>
+                            </select>
+                        </div>
+                        <div class="card__body">
+                            <textarea id="code-input" class="form-control code-editor" placeholder="Paste your code here or select an example from the dropdown..."></textarea>
+                            <button id="scan-button" class="btn btn--primary btn--full-width mt-8">
+                                🔍 Start AI Scan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scan-results-section">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Scan Results</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="scan-status" class="scan-status hidden">
+                                <div class="progress-bar">
+                                    <div id="progress-fill" class="progress-fill"></div>
+                                </div>
+                                <div id="scan-progress-text">Initializing AI engine...</div>
+                            </div>
+                            
+                            <div id="scan-results" class="scan-results hidden">
+                                <!-- Results will be populated here -->
+                            </div>
+                            
+                            <div id="no-results" class="no-results">
+                                <p>Run a scan to see results and AI insights</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements-section">
+        <div class="container">
+            <h2>Achievements & Gamification</h2>
+            <div class="achievements-grid" id="achievements-container">
+                <!-- Achievements will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="leaderboard-section">
+        <div class="container">
+            <h2>Global Leaderboard</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="leaderboard-table" id="leaderboard-container">
+                        <!-- Leaderboard will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Content Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <h2>Security Education Center</h2>
+            <div class="education-grid">
+                <div class="owasp-categories">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>OWASP Top 10 Categories</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="owasp-list" class="owasp-list">
+                                <!-- OWASP categories will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vulnerability-details">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Vulnerability Details</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="vuln-details" class="vuln-details">
+                                <p>Select a vulnerability type to learn more about it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Notification -->
+    <div id="achievement-notification" class="achievement-notification hidden">
+        <div class="notification-content">
+            <div class="achievement-icon">🏆</div>
+            <div class="achievement-text">
+                <h4>Achievement Unlocked!</h4>
+                <p id="achievement-name"></p>
+                <span id="achievement-points"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 SecureCodeAI. Powered by advanced AI and machine learning.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">TensorFlow</span>
+                    <span class="tech-badge">MongoDB</span>
+                    <span class="tech-badge">WebSockets</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
